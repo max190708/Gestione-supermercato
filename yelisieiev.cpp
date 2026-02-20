@@ -3,11 +3,11 @@ using namespace std;
 void aggiungi(int prodotto,int prod[],int d)
 {
 int num,pos;
+	int num,pos=0;
 	cout<<"Inserisci il numero che vuoi aggiungere:"<<endl;
 	cin>>num;
-	cout<<"Inserisci la posizione in cui vuoi inserire un numero:"<<endl;
-	cin>>pos;
-	prod[pos]=num;	
+	prod[pos]=num;
+	pos++;
 }
 void visualizza (int prod[],int d )
 {
@@ -72,4 +72,5 @@ int main()
 }
 	
 	
+
 
