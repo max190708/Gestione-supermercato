@@ -1,6 +1,7 @@
 #include <iostream>
-using namescape std;
+using namespace std;
 int main()
 {
 	
+
 }
