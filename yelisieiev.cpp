@@ -2,7 +2,12 @@
 using namespace std;
 void aggiungi(int prodotto,int prod[],int d)
 {
-	
+int num,pos;
+	cout<<"Inserisci il numero che vuoi aggiungere:"<<endl;
+	cin>>num;
+	cout<<"Inserisci la posizione in cui vuoi inserire un numero:"<<endl;
+	cin>>pos;
+	prod[pos]=num;	
 }
 void visualizza (int prod[],int d )
 {
@@ -10,7 +15,7 @@ void visualizza (int prod[],int d )
 }
 int cerca(int prodotto,int prod[],int d)
 {
-	
+return true;	
 }
 void cancella(bool a, int prodotto,int prod[],int d)
 {
@@ -67,3 +72,4 @@ int main()
 }
 	
 	
+
