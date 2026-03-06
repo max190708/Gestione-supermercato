@@ -1,12 +1,18 @@
 	#include <iostream>
+	#include <string>
 	using namespace std;
-	void aggiungi(int prodotto,int prod[],int &d)
+	struct prodotto{
+	string nome;
+	float prezzo;	
+};
+	void aggiungi(prodotto pro,prodotto prod[],int &d)
 	{
-	prod[d]=prodotto;
+	prod[d]=pro;
 	d++;
 	}
-	void visualizza (int prod[],int d )
+	string visualizza (prodotto prod[],int d )
 	{
+		string s;
 		if(d==0)
 		{
 			cout<<"Array vuoto.";
@@ -16,22 +22,27 @@
 		cout<<endl<<"Gli elementi presenti nell'array sono: "<<endl<<endl;
 		for(int i=0;i<d;i++)
 		{
-		cout<<"Posizione: "<<i+1 <<" Elemento: "<<prod[i]<<endl;			
+		s+=prod[i].nome+"\t";
+		s+="------------        ";
+		s+=to_string(prod[i].prezzo)+"\n";
+		}}
+		cout<<s;
+		return s;
 		}
-		}
-	}
-	int cerca(int prodotto,int prod[],int d)
+	int cerca(prodotto prod[],int d)
 	{
+	     string s;
+	     cin>>s;
 	for (int i=0;i<d;i++)
     {
-        if (prod[i]=prodotto)
+        if (prod[i].nome==s)
         {
             return i;  
         }
     }
-	return -1;	
+	return -1; 
 	}
-	void cancella(bool a, int prodotto,int prod[],int d)
+	/*void cancella(bool a, prodotto pro,prodotto prod[],int d)
 	{
 		cout<<"Inserisci il valore da cancellare: "<<endl;
 		cin>>prodotto;
@@ -49,7 +60,7 @@
 		      cout<<"Elemento non trovato."<<endl;
 		
 	}
-	void modifica(bool a, int prodotto,int prod[],int d)
+	void modifica(bool a, prodottopro,prodotto prod[],int d)
 	{
 	    int pos,num;
 		cout<<"Inserisci la posizione che vuoi modificare : "<<endl;
@@ -63,14 +74,12 @@
 		prod[pos-1]=num;
 		cout<<"Elemento modificato . "<<endl;
 		}
-	}
+	}*/
 	int main()
 	
 	{
-		// nome,prodotto,prezzo,categoria;
-		int prodotto;
-		int prod[100];
-		int nome[]={};
+		prodotto pro;
+		prodotto prod[100];
 		int d=0;
 		int opzione;
 		bool a;
@@ -87,10 +96,12 @@
 		switch(opzione)
 		{
 		case 1:
-		cout<<"Inserisci il numero che vuoi aggiungere : "<<endl;
-	    cin>>prodotto;
-		aggiungi( prodotto, prod, d);
-		cout<<"Elemento aggiunto con successo."<<endl<<endl;		
+		cout<<"Inserisci il nome : ";
+		cin.ignore();
+		getline(cin,pro.nome);
+		cout<<"Inserisci il prezzo : ";
+		cin>>pro.prezzo;
+		aggiungi(pro,prod,d);		
 		break;	
 		
 		case 2:
@@ -99,22 +110,21 @@
 		
 		case 3:
 			{
-                cout<<"Inserisci il valore da cercare: ";
-                cin>>prodotto;
-                int pos=cerca( prodotto, prod, d);
-                if (pos==1)
+                cout<<"Inserisci il nome del prodotto che vuoi cercare : ";
+                int pos=cerca( prod, d);
+                if (pos==-1)
                     cout<<"Elemento non trovato."<<endl;
                 else
                     cout<<"Elemento trovato in posizione: "<<pos+1<<endl;
                 break;
 			}
-		case 4:
-		cancella(a,prodotto, prod, d); 
+		/*case 4:
+		cancella(a,pro, prod, d); 
 		break;	
 		
 		case 5:
-		modifica(a,prodotto, prod, d);
-		break;	
+		modifica(a,pro, prod, d);
+		break;	*/
 		
 		case 0:
 		cout<<"Uscita dal programma.";
